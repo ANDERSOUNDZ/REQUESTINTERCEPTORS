@@ -11,14 +11,16 @@ export class AppComponent{
 
   title = 'REQUESTINTERCEPTORS';
 
-  fakeList: ApiFake[] = [];
+  fakeList: any;
 
   constructor(private api: ApiFakeService){}
 
   getData() {
     this.api.dataApiFake().subscribe(
-      (request: ApiFake[]) => {
+
+      (request: any) => {
         this.fakeList = request;
+        console.log(this.fakeList);
       }
     );
   }

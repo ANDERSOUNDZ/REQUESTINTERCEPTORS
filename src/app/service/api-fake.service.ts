@@ -13,8 +13,8 @@ export class ApiFakeService {
 
   constructor(private http:HttpClient){}
   
-  dataApiFake(): Observable<ApiFake[]>{
-  return this.http.get<ApiFake[]>(this.baseApi+"/api/users?page=2");
+  dataApiFake(): Observable<any>{
+  return this.http.get<any>(this.baseApi+"/api/users?page=2");
   }
 
 }
