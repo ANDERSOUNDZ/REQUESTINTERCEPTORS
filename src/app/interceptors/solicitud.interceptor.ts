@@ -14,7 +14,12 @@ import {  HttpInterceptor, HttpHandler,HttpEvent, HttpRequest } from '@angular/c
         url: request.url +'?page=2'
     });*/
     const modifiedRequest = request.clone({
-      url: this.baseApi + request.url
+      url: this.baseApi + request.url, 
+      setHeaders: {
+        'header1': 'contenido header1',
+        header2: 'contenido header 2'
+
+      }
   });
     const body = request.body;
     console.log('BODY');
