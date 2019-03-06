@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiFake } from './model/ApiFake';
+import { ApiFake, Pass } from './model/ApiFake';
 import { ApiFakeService } from './service/api-fake.service';
 
 
@@ -16,6 +16,8 @@ export class AppComponent{
   title = 'REQUESTINTERCEPTORS';
 
   fakeList: any;
+
+
 
   constructor(private api: ApiFakeService){}
 
@@ -35,5 +37,13 @@ export class AppComponent{
       }
     );
   }
+
+  //pass(){
+    //this.api.dataApiFakePost().subscribe(
+      //(request: any) => {
+        //this.fakeList=request;
+      //}
+    //)
+  //}
 
 }

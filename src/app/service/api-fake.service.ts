@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ApiFake } from 'src/app/model/ApiFake'
+import { Pass } from 'src/app/model/ApiFake'
 import { Observable } from 'rxjs';
-import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -19,7 +19,11 @@ export class ApiFakeService {
 
   dataApiFakeRegister(): Observable<any>{
     return this.http.get<any>("/api/register");
-    }
+  }
+
+  //dataApiFakePost(): Observable<any>{
+    //return this.http.post<any>("/api/register");
+  //}
 
 }
 

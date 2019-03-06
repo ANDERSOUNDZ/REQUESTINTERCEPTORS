@@ -26,3 +26,8 @@ export class ApiFake {
         ]
     
 }
+
+export class Pass {
+        email: string;
+        password: string;
+}
