@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClientModule} from '@angular/common/http';
+import { httpInterceptorProviders } from './service/api-fake.service';
 
 
 @NgModule({
@@ -17,7 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+
+    httpInterceptorProviders
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ApiFake } from 'src/app/model/ApiFake'
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SolicitudInterceptor } from '../interceptors/solicitud.interceptor';
 
+
+//------
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: SolicitudInterceptor, multi: true },
+];
 
 @Injectable({
   providedIn: 'root'
