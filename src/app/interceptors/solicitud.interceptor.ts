@@ -7,12 +7,13 @@ import {  HttpInterceptor, HttpHandler,HttpEvent, HttpRequest } from '@angular/c
   export class SolicitudInterceptor implements HttpInterceptor {
     //aqui no cacho
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        request= request.clone({
-            url: request.url +'?page=2'
-        });
-        return next.handle(request);
+   /*   request= request.clone({
+        url: request.url +'?page=2'
+    });*/
+    const body = request.body;
+    const headers = request.headers;
+    
+    return next.handle(request);
     }
   
   }
-  
-  
