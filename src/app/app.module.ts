@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule} from '@angular/common/http';
-import { httpInterceptorProviders } from './service/api-fake.service';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { SolicitudInterceptor } from './interceptors/solicitud.interceptor';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { httpInterceptorProviders } from './service/api-fake.service';
   ],
   providers: [
 
-    httpInterceptorProviders
+    { provide: HTTP_INTERCEPTORS, useClass: SolicitudInterceptor, multi: true }
     
   ],
   bootstrap: [AppComponent]
