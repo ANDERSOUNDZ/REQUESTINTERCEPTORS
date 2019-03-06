@@ -17,5 +17,9 @@ export class ApiFakeService {
   return this.http.get<any>("/api/users?page=2");
   }
 
+  dataApiFakeRegister(): Observable<any>{
+    return this.http.get<any>("/api/register");
+    }
+
 }
 

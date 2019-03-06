@@ -28,4 +28,12 @@ export class AppComponent{
     );
   }
 
+  getDataRegister(){
+    this.api.dataApiFakeRegister().subscribe(
+      (request: any) => {
+        this.fakeList=request;
+      }
+    );
+  }
+
 }
