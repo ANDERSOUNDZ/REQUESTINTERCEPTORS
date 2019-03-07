@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Pass } from 'src/app/model/ApiFake'
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { stringify } from 'querystring';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiFakeService {
-
-  
 
   constructor(private http:HttpClient){}
   
@@ -21,9 +19,12 @@ export class ApiFakeService {
     return this.http.get<any>("/api/register");
   }
 
-  //dataApiFakePost(): Observable<any>{
-    //return this.http.post<any>("/api/register");
-  //}
+  dataApiFakePost(): Observable<any>{
+    return this.http.post<any>("/api/register",{
+      "email": "sydney@fife",
+      "password": "pistol"
+    });
+  }
 
 }
 

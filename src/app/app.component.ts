@@ -17,14 +17,12 @@ export class AppComponent{
 
   fakeList: any;
 
-
-
   constructor(private api: ApiFakeService){}
 
   getData() {
     this.api.dataApiFake().subscribe(
       (request: any) => {
-        this.fakeList = request;
+        this.fakeList = JSON.stringify(request);
         //console.log(this.fakeList);
       }
     );
@@ -33,17 +31,17 @@ export class AppComponent{
   getDataRegister(){
     this.api.dataApiFakeRegister().subscribe(
       (request: any) => {
-        this.fakeList=request;
+        this.fakeList=JSON.stringify(request);
       }
     );
   }
 
-  //pass(){
-    //this.api.dataApiFakePost().subscribe(
-      //(request: any) => {
-        //this.fakeList=request;
-      //}
-    //)
-  //}
+  pass(){
+    this.api.dataApiFakePost().subscribe(
+      (request: any) => {
+        this.fakeList=JSON.stringify(request);
+      }
+    )
+  }
 
 }

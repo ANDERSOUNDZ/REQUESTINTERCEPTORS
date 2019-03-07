@@ -6,6 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { SolicitudInterceptor } from './interceptors/solicitud.interceptor';
 
+import {
+  MatButtonModule
+} from '@angular/material';
+
+
 
 @NgModule({
   declarations: [
@@ -14,7 +19,8 @@ import { SolicitudInterceptor } from './interceptors/solicitud.interceptor';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
     
   ],
   providers: [
