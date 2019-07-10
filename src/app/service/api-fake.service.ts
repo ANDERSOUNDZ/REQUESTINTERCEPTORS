@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { stringify } from 'querystring';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiFakeService {
+
+  tokenKey = "TOKEN";
 
   constructor(private http:HttpClient){}
   
@@ -26,5 +27,14 @@ export class ApiFakeService {
     });
   }
 
+  
+  getSession(){
+    return localStorage.getItem(this.tokenKey);
+  }
+
+  saveSession(token: string){
+    localStorage.setItem(this.tokenKey,token);  
+  }
+  
 }
 

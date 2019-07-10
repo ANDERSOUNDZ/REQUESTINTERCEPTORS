@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiFake, Pass } from './model/ApiFake';
 import { ApiFakeService } from './service/api-fake.service';
-
-
-
 
 @Component({
   selector: 'app-root',
@@ -21,27 +17,29 @@ export class AppComponent{
 
   getData() {
     this.api.dataApiFake().subscribe(
-      (request: any) => {
-        this.fakeList = JSON.stringify(request);
-        //console.log(this.fakeList);
+      (response: any) => {
+        this.fakeList = JSON.stringify(response);
+        //console.log(this.fakeList+"hey");
       }
     );
   }
 
   getDataRegister(){
     this.api.dataApiFakeRegister().subscribe(
-      (request: any) => {
-        this.fakeList=JSON.stringify(request);
+      (response: any) => {
+        this.fakeList=JSON.stringify(response);
+        console.log(response+"hey");
       }
     );
   }
 
   pass(){
     this.api.dataApiFakePost().subscribe(
-      (request: any) => {
-        this.fakeList=JSON.stringify(request);
+      (response: any) => {
+        this.fakeList=JSON.stringify(response);
+        this.api.saveSession(response.token);
+        
       }
     )
   }
-
 }

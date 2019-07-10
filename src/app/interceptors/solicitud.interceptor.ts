@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {  HttpInterceptor, HttpHandler,HttpEvent, HttpRequest } from '@angular/common/http';
+import { ApiFakeService } from '../service/api-fake.service';
 
 @Injectable()
 
@@ -8,17 +9,25 @@ import {  HttpInterceptor, HttpHandler,HttpEvent, HttpRequest } from '@angular/c
 
     private baseApi = "https://reqres.in";
 
+
+    constructor (private apiFakeService: ApiFakeService){};
+
     //aqui no cacho
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     /*   request= request.clone({
         url: request.url +'?page=2'
     });*/
 
+    let token = this.apiFakeService.getSession();
+      if(!token){
+          token="";
+      }
+
+
     const modifiedRequest = request.clone({
       url: this.baseApi + request.url, 
       setHeaders:{
-        'header1': 'contenido header1',
-        header2: 'contenido header 2'
+        Authorization: token
       }
     });
 
